@@ -28,13 +28,13 @@ def visit_site(url, visit_number):
         driver.execute_cdp_cmd('Network.clearBrowserCookies', {})
 
         # Random delay to seem more human-like
-        time.sleep(1 + random.random() * 2)
+        time.sleep(3 + random.random() * 2)
 
         # Visit the site
         driver.get(url)
 
         # Simulate reading time
-        time.sleep(3 + random.random() * 3)
+        time.sleep(10 + random.random() * 3)
 
     except Exception as e:
         print(f"Error in visit #{visit_number}: {str(e)}")
@@ -51,7 +51,7 @@ def simulate_concurrent_visits(url, visits):
         url (str): The website URL to visit
         visits (int): Number of times to visit the site
     """
-    max_concurrent = 10  # Fixed at 10 concurrent visits
+    max_concurrent = 15  # Fixed at 10 concurrent visits
     print(f"Starting {visits} concurrent visits to {url}")
     print(f"Maximum concurrent visits: {max_concurrent}")
 
