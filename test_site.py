@@ -43,15 +43,15 @@ def visit_site(url, visit_number):
         print(f"Completed Visit #{visit_number}")
 
 
-def simulate_concurrent_visits(url, visits):
+def simulate_concurrent_visits(url, visits, max_concurrent):
     """
     Simulate concurrent first-time visits to a website
     
     Args:
         url (str): The website URL to visit
         visits (int): Number of times to visit the site
+        max_concurrent (int): Maximum number of concurrent visits
     """
-    max_concurrent = 15  # Fixed at 10 concurrent visits
     print(f"Starting {visits} concurrent visits to {url}")
     print(f"Maximum concurrent visits: {max_concurrent}")
 
@@ -74,10 +74,15 @@ def main():
     parser.add_argument('visits',
                         type=int,
                         help='Number of times to visit the site')
+    parser.add_argument(
+        '--max-concurrent',
+        type=int,
+        default=5,
+        help='Maximum number of concurrent visits (default: 5)')
 
     args = parser.parse_args()
 
-    simulate_concurrent_visits(args.url, args.visits)
+    simulate_concurrent_visits(args.url, args.visits, args.max_concurrent)
     print("\nAll visits completed!")
 
 

@@ -4,7 +4,7 @@ A Python script that simulates multiple concurrent first-time visits to a websit
 
 ## Features
 
-- Concurrent website visits (10 simultaneous visits by default)
+- Configurable number of concurrent website visits
 - Automatic cache and cookie clearing before each visit
 - Human-like behavior simulation with random delays
 - Progress tracking for each visit
@@ -52,12 +52,12 @@ source venv/bin/activate
 
 2. Run the script:
 ```bash
-python website_visitor.py URL NUMBER_OF_VISITS
+python website_visitor.py URL NUMBER_OF_VISITS --max-concurrent NUMBER_OF_CONCURRENT_VISITS
 ```
 
 Example:
 ```bash
-python website_visitor.py https://example.com 20
+python website_visitor.py https://example.com 20 --max-concurrent 10
 ```
 This will create 20 visits to example.com, with 10 concurrent visits running at a time.
 
@@ -65,6 +65,7 @@ This will create 20 visits to example.com, with 10 concurrent visits running at 
 
 - `URL`: The website URL you want to visit
 - `NUMBER_OF_VISITS`: Total number of visits to make to the website
+- `--max-concurrent`: Maximum number of concurrent visits (default: 5)
 
 ## Important Notes
 
